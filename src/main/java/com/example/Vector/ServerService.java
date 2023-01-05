@@ -9,15 +9,15 @@ public class ServerService {
     @Autowired
     LicenseRepository licenseRepository;
 
-    public Integer getLicense(){
-       License license = licenseRepository.findByCompilerName("gcc");
+    public Integer getLicense(String nameOfCompiler){
+       License license = licenseRepository.findByCompilerName(nameOfCompiler);
        int number = license.getNumberOfLicense();
         return number;
     }
 
-    public String reserveLicense(){
+    public String reserveLicense(String nameOfCompiler){
         String result;
-        License license = licenseRepository.findByCompilerName("gcc");
+        License license = licenseRepository.findByCompilerName(nameOfCompiler);
         int maximumLicense = license.getNumberOfLicense();
         int currentLicense = license.getCurrentLicense();
         if(currentLicense < maximumLicense){
@@ -33,8 +33,8 @@ public class ServerService {
         return result;
     }
 
-    public void freeLicense(){
-        License license = licenseRepository.findByCompilerName("gcc");
+    public void freeLicense(String nameOfCompiler){
+        License license = licenseRepository.findByCompilerName(nameOfCompiler);
         int maximumLicense = license.getNumberOfLicense();
         int currentLicense = license.getCurrentLicense();
         currentLicense = currentLicense - 1;
