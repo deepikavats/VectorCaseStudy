@@ -1,0 +1,47 @@
+2023-01-05 12:18:55 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 12:32:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 12:46:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 12:54:03 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 12:56:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 13:02:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (this database is empty); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42104-214]
+2023-01-05 13:19:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:24:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:27:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:31:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:34:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:40:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compiler_name",l1_0."current_license",l1_0."number_of_license_in_non_working_hours",l1_0."number_of_license_in_working_hours" from "license" l1_0 where l1_0."compiler_name"=? [42103-214]
+2023-01-05 13:43:15 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LICENSE" already exists; SQL statement:
+create table license(
+    compilerName char(6) not null PRIMARY KEY,
+    numberOfLicenseInWorkingHours int not null,
+    numberOfLicenseInNonWorkingHours int not null,
+    currentLicense int
+) [42101-214]
+2023-01-05 13:50:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "license" not found (candidates are: "LICENSE"); SQL statement:
+select l1_0."compilername",l1_0."currentlicense",l1_0."numberoflicenseinnonworkinghours",l1_0."numberoflicenseinworkinghours" from "license" l1_0 where l1_0."compilername"=? [42103-214]

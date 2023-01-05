@@ -5,20 +5,23 @@ import lombok.Data;
 
 //import javax.persistence.*;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Data
 @Entity
-@Table(name = "License")
+@Table(name = "LICENSE")
 public class License {
 
     @Id
+    @Column(name = "COMPILERNAME")
     String compilerName;
 
+    @Column(name = "NUMBEROFLICENSEINWORKINGHOURS")
     int numberOfLicenseInWorkingHours;
 
+    @Column(name = "NUMBEROFLICENSEINNONWORKINGHOURS")
     int numberOfLicenseInNonWorkingHours;
 
+    @Column(name = "CURRENTLICENSE")
     int currentLicense;
 
 

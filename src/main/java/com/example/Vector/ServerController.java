@@ -1,7 +1,6 @@
 package com.example.Vector;
 
 
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +8,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Slf4j
@@ -37,7 +35,7 @@ public class ServerController {
         return new ResponseEntity<>("License has been released", HttpStatus.OK);
     }
 
-    @PostMapping(path = "/configurelicenses", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/configurelicenses", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<License> configureLicense(@RequestParam(name = "compilerName") @NotNull String compilerName, @RequestParam(name = "numberOfLicenseInWorkingHours") @NotNull int numberOfLicenseInWorkingHours, @RequestParam(name = "numberOfLicenseInNonWorkingHours") @NotNull int numberOfLicenseInNonWorkingHours){
         License license1 = serverService.licenseConfiguration(compilerName, numberOfLicenseInWorkingHours, numberOfLicenseInNonWorkingHours );
         return ResponseEntity.ok(license1);
