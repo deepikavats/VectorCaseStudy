@@ -3,6 +3,8 @@ package com.example.Vector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.NotNull;
+
 @Service
 public class ServerService {
 
@@ -11,14 +13,14 @@ public class ServerService {
 
     public Integer getLicense(String nameOfCompiler){
        License license = licenseRepository.findByCompilerName(nameOfCompiler);
-       int number = license.getNumberOfLicense();
+       int number = license.getNumberOfLicenseInWorkingHours();
         return number;
     }
 
     public String reserveLicense(String nameOfCompiler){
         String result;
         License license = licenseRepository.findByCompilerName(nameOfCompiler);
-        int maximumLicense = license.getNumberOfLicense();
+        int maximumLicense = license.getNumberOfLicenseInWorkingHours();
         int currentLicense = license.getCurrentLicense();
         if(currentLicense < maximumLicense){
             currentLicense = currentLicense + 1;
@@ -35,21 +37,18 @@ public class ServerService {
 
     public void freeLicense(String nameOfCompiler){
         License license = licenseRepository.findByCompilerName(nameOfCompiler);
-        int maximumLicense = license.getNumberOfLicense();
+        int maximumLicense = license.getNumberOfLicenseInWorkingHours();
         int currentLicense = license.getCurrentLicense();
         currentLicense = currentLicense - 1;
         license.setCurrentLicense(currentLicense);
         licenseRepository.save(license);
     }
-    public License licenseConfiguration(License license){
+    public License licenseConfiguration(@NotNull String nameOfCompiler, @NotNull int workingHoursLicense, @NotNull int nonWorkingHoursLicense){
         License licenses = new License();
-        int licenseAvailable = license.getNumberOfLicense();
-        int currentLicense = license.getCurrentLicense();
-        licenses.setNumberOfLicense(licenseAvailable);
-        licenses.setCurrentLicense(currentLicense);
-        licenseRepository.save(license);
-        int LicenseNumber = licenses.getNumberOfLicense();
-        System.out.println("license are-----" + LicenseNumber);
-        return license;
+        licenses.setCompilerName(nameOfCompiler);
+        licenses.setNumberOfLicenseInWorkingHours(workingHoursLicense);
+        licenses.setNumberOfLicenseInNonWorkingHours(nonWorkingHoursLicense);
+        licenseRepository.save(licenses);
+        return licenses;
     }
 }

@@ -15,7 +15,9 @@ public class License {
     @Id
     String compilerName;
 
-    int numberOfLicense;
+    int numberOfLicenseInWorkingHours;
+
+    int numberOfLicenseInNonWorkingHours;
 
     int currentLicense;
 

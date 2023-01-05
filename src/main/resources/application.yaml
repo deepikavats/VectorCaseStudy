@@ -9,5 +9,8 @@ spring:
 
   jpa:
     spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
   h2:
     console.enabled: true

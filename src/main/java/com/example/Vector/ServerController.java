@@ -37,11 +37,9 @@ public class ServerController {
         return new ResponseEntity<>("License has been released", HttpStatus.OK);
     }
 
-    @PostMapping(path = "/configurelicenses", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<License> configureLicense(@RequestBody @Valid License license){
-        //need only two things 1. number of license 2. compiler name
-        //working hours
-        License license1 = serverService.licenseConfiguration(license);
+    @PostMapping(path = "/configurelicenses", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<License> configureLicense(@RequestParam(name = "compilerName") @NotNull String compilerName, @RequestParam(name = "numberOfLicenseInWorkingHours") @NotNull int numberOfLicenseInWorkingHours, @RequestParam(name = "numberOfLicenseInNonWorkingHours") @NotNull int numberOfLicenseInNonWorkingHours){
+        License license1 = serverService.licenseConfiguration(compilerName, numberOfLicenseInWorkingHours, numberOfLicenseInNonWorkingHours );
         return ResponseEntity.ok(license1);
 
     }
