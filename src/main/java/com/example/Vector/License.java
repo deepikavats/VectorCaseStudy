@@ -12,16 +12,16 @@ import lombok.Data;
 public class License {
 
     @Id
-    @Column(name = "COMPILERNAME")
+    @Column(name = "compilername")
     String compilerName;
 
-    @Column(name = "NUMBEROFLICENSEINWORKINGHOURS")
+    @Column(name = "numberoflicenseinworkinghours")
     int numberOfLicenseInWorkingHours;
 
-    @Column(name = "NUMBEROFLICENSEINNONWORKINGHOURS")
+    @Column(name = "numberoflicenseinnonworkinghours")
     int numberOfLicenseInNonWorkingHours;
 
-    @Column(name = "CURRENTLICENSE")
+    @Column(name = "currentlicense")
     int currentLicense;
 
 
