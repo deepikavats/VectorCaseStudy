@@ -1,6 +1,20 @@
 create table IF NOT EXISTS license(
-    compilername char(6) not null PRIMARY KEY,
+    compilername char(16) not null PRIMARY KEY,
     numberoflicenseinworkinghours int not null,
     numberoflicenseinnonworkinghours int not null,
     currentlicense int
 );
+
+create table IF NOT EXISTS licensedata(
+    compilername char(16) not null PRIMARY KEY,
+    licensedate DATE not null,
+    licensesusedbydevelopers int,
+    licensesusedbyci int
+);
+
+create table IF NOT EXISTS workingtimings(
+    dayname char(16) not null PRIMARY KEY,
+    starttime TIME not null,
+    endtime TIME not null
+);
+

@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Slf4j
@@ -39,7 +40,18 @@ public class ServerController {
     public ResponseEntity<License> configureLicense(@RequestParam(name = "compilerName") @NotNull String compilerName, @RequestParam(name = "numberOfLicenseInWorkingHours") @NotNull int numberOfLicenseInWorkingHours, @RequestParam(name = "numberOfLicenseInNonWorkingHours") @NotNull int numberOfLicenseInNonWorkingHours){
         License license1 = serverService.licenseConfiguration(compilerName, numberOfLicenseInWorkingHours, numberOfLicenseInNonWorkingHours );
         return ResponseEntity.ok(license1);
+    }
 
+    @PostMapping(path = "/configureWorkingTimings", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<WorkingTimings> configureWorkingTimings(@Valid @RequestBody(required = true) WorkingHoursConfiguration workingTimings){
+        WorkingTimings timings = serverService.workingTimeConfiguration(workingTimings);
+        return ResponseEntity.ok(timings);
+    }
+
+    @GetMapping(path = "/getLicenseData", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Iterable<LicenseData>> getLicenseData(){
+        Iterable<LicenseData> data = serverService.getLicenseData();
+        return ResponseEntity.ok(data);
     }
 
 }
