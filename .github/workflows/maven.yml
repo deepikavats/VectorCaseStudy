@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
   
-    - name: Run  getLicense command Shell script from build.sh using http
+    - name: Execution of build using script
       run: sh ./callapi.sh
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
