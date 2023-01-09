@@ -8,7 +8,6 @@ create table IF NOT EXISTS license(
 create table IF NOT EXISTS licensedata(
     compilername char(16) not null PRIMARY KEY,
     licensedate DATE not null,
-    licensesusedbydevelopers int,
     licensesusedbyci int
 );
 

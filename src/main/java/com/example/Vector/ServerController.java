@@ -32,8 +32,8 @@ public class ServerController {
 
     @PostMapping(path = "/freeLicense")
     public ResponseEntity<String> freeLicense(@RequestParam(name = "compilerName") @NotNull String compilerName){
-        serverService.freeLicense(compilerName);
-        return new ResponseEntity<>("License has been released", HttpStatus.OK);
+        String result = serverService.freeLicense(compilerName);
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping(path = "/configurelicenses", produces = MediaType.APPLICATION_JSON_VALUE)

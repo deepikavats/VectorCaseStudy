@@ -19,9 +19,6 @@ public class LicenseData {
     @Column(name = "licensedate")
     public LocalDate licenseDate;
 
-    @Column(name = "licensesusedbydevelopers")
-    public int licensesUsedByDevelopers;
-
     @Column(name = "licensesusedbyci")
     public int licensesUsedByCi;
 }

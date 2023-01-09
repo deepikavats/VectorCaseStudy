@@ -22,7 +22,7 @@ public class ServerService {
     @Autowired
     LicenseDataRepository licenseDataRepository;
 
-    public Integer getLicense(String nameOfCompiler){
+    public int getLicense(String nameOfCompiler){
        License license = licenseRepository.findByCompilerName(nameOfCompiler);
        int licenseInWorkingHours = license.getNumberOfLicenseInWorkingHours();
         return licenseInWorkingHours;
@@ -39,7 +39,6 @@ public class ServerService {
         LocalDate currentDate = LocalDate.now();
         DayOfWeek day =currentDate.getDayOfWeek();
         String nameOfDay =day.name();
-        System.out.println("Name of day------" + nameOfDay);
         WorkingTimings timings = workingTimeRepository.findByDay(nameOfDay);
         if(timings == null){
             maxLicense = maximumNonWorkingHoursLicense;
@@ -79,12 +78,20 @@ public class ServerService {
         return result;
     }
 
-    public void freeLicense(String nameOfCompiler){
+    public String freeLicense(String nameOfCompiler){
+        String result;
         License license = licenseRepository.findByCompilerName(nameOfCompiler);
         int currentLicense = license.getCurrentLicense();
-        currentLicense = currentLicense - 1;
-        license.setCurrentLicense(currentLicense);
+        if(currentLicense == 0){
+            result = "No License in use";
+        }
+        else {
+            currentLicense = currentLicense - 1;
+            license.setCurrentLicense(currentLicense);
+            result = "License has been released";
+        }
         licenseRepository.save(license);
+        return result;
     }
     public License licenseConfiguration(@NotNull String nameOfCompiler, @NotNull int workingHoursLicense, @NotNull int nonWorkingHoursLicense){
         License licenses = new License();
@@ -92,8 +99,13 @@ public class ServerService {
         licenses.setNumberOfLicenseInWorkingHours(workingHoursLicense);
         licenses.setNumberOfLicenseInNonWorkingHours(nonWorkingHoursLicense);
         License license = licenseRepository.findByCompilerName(nameOfCompiler);
-        int currentlicense = license.getCurrentLicense();
-        licenses.setCurrentLicense(currentlicense);
+        if(license == null){
+            licenses.setCurrentLicense(0);
+        }
+        else {
+            int currentlicense = license.getCurrentLicense();
+            licenses.setCurrentLicense(currentlicense);
+        }
         licenseRepository.save(licenses);
         return licenses;
     }

@@ -1,0 +1,10 @@
+com/example/Vector/ServerController.class
+com/example/Vector/License.class
+com/example/Vector/VectorApplication.class
+com/example/Vector/LicenseRepository.class
+com/example/Vector/ServerService.class
+com/example/Vector/WorkingHoursConfiguration.class
+com/example/Vector/WorkingTimeRepository.class
+com/example/Vector/WorkingTimings.class
+com/example/Vector/LicenseData.class
+com/example/Vector/LicenseDataRepository.class
